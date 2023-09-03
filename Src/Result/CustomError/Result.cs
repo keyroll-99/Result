@@ -1,4 +1,4 @@
-﻿namespace Result.CustomError;
+﻿namespace Result;
 
 public class Result<TSuccess, TError>
     where TSuccess : class
@@ -28,6 +28,16 @@ public class Result<TSuccess, TError>
     public static implicit operator TError?(Result<TSuccess, TError> result)
     {
         return result.ErrorModel;
+    }
+    
+    public static implicit operator Result<TSuccess, TError>(TSuccess successModel)
+    {
+        return Success(successModel);
+    }
+
+    public static implicit operator Result<TSuccess, TError>(TError error)
+    {
+        return Fail(error);
     }
 
     public static Result<TSuccess, TError> Success(TSuccess success)

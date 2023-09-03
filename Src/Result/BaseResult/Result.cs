@@ -1,6 +1,5 @@
-﻿using Result.CustomError;
-
-namespace Result.BaseResult;
+﻿
+namespace Result;
 
 public class Result<TSuccess> : Result<TSuccess, string>
     where TSuccess : class
@@ -17,5 +16,15 @@ public class Result<TSuccess> : Result<TSuccess, string>
     public new static Result<TSuccess> Fail(string error)
     {
         return new Result<TSuccess>(false, null, error);
+    }
+    
+    public static implicit operator Result<TSuccess>(TSuccess successModel)
+    {
+        return Success(successModel);
+    }
+
+    public static implicit operator Result<TSuccess>(string error)
+    {
+        return Fail(error);
     }
 }

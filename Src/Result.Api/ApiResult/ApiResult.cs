@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Result.BaseResult;
-using Result.CustomError;
-
 namespace Result.Api.ApiResult;
 
 public class ApiResult<TSuccess, TError> : Result<TSuccess, TError>
     where TSuccess : class
     where TError : class
 {
-    public int StatusCode { get; }
+    public int StatusCode { get; set; }
 
-    protected ApiResult(bool isSuccess, TSuccess? successModel, TError? error, int statusCode) : base(isSuccess,
+    private ApiResult(bool isSuccess, TSuccess? successModel, TError? error, int statusCode) : base(isSuccess,
         successModel, error)
     {
         StatusCode = statusCode;
@@ -35,6 +33,21 @@ public class ApiResult<TSuccess, TError> : Result<TSuccess, TError>
         };
     }
 
+    public IResult GetResult()
+    {
+        return Results.Json(IsSuccess ? SuccessModel : ErrorModel, statusCode: StatusCode);
+    }
+    
     public static implicit operator ObjectResult(ApiResult<TSuccess, TError> result)
         => result.GetObjectResult();
+
+    public static implicit operator ApiResult<TSuccess, TError>(TSuccess successModel)
+    {
+        return Success(successModel);
+    }
+
+    public static implicit operator ApiResult<TSuccess, TError>(TError error)
+    {
+        return Fail(error);
+    }
 }

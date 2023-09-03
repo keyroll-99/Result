@@ -1,5 +1,4 @@
 ﻿using Result;
-using Result.BaseResult;
 using ResultSample.Models;
 
 namespace ResultSample;
