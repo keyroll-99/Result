@@ -10,7 +10,7 @@
 
 
     <ItemGroup>
-      <ProjectReference Include="..\Src\Result.Api\Result.Api.csproj" />
+      <ProjectReference Include="..\..\Src\Result.Api\Result.Api.csproj" />
     </ItemGroup>
 
 </Project>

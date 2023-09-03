@@ -6,22 +6,12 @@ public static class Extensions
     where TSuccess: class
     where TError: class
     {
-        if (result.IsSuccess)
-        {
-            return ApiResult<TSuccess, TError>.Success(result);
-        }
-
-        return ApiResult<TSuccess, TError>.Fail(result);
+        return result.IsSuccess ? ApiResult<TSuccess, TError>.Success(result) : ApiResult<TSuccess, TError>.Fail(result);
     }
     
     public static ApiResult<TSuccess, string> ToApiResult<TSuccess>(Result<TSuccess> result)
         where TSuccess: class
     {
-        if (result.IsSuccess)
-        {
-            return ApiResult<TSuccess, string>.Success(result);
-        }
-
-        return ApiResult<TSuccess, string>.Fail(result);
+        return result.IsSuccess ? ApiResult<TSuccess, string>.Success(result) : ApiResult<TSuccess, string>.Fail(result);
     }
 }
