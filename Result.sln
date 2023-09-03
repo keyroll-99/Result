@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Result", "Src\Result\Result
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultSample", "ResultSample\ResultSample.csproj", "{443A4168-D041-4F2C-ADF1-CA83EB1773BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Result.Api", "Src\Result.Api\Result.Api.csproj", "{99F9DA34-ECDF-476E-B395-F34EA705CA7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{05AA90E6-FB99-4479-B41E-9DA452A53CC7} = {70F562C7-F64C-41AF-AF87-BA1154469739}
 		{443A4168-D041-4F2C-ADF1-CA83EB1773BC} = {EBC55255-321A-445A-A12B-2F879EAA3E6C}
+		{99F9DA34-ECDF-476E-B395-F34EA705CA7B} = {70F562C7-F64C-41AF-AF87-BA1154469739}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{05AA90E6-FB99-4479-B41E-9DA452A53CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -28,5 +31,9 @@ Global
 		{443A4168-D041-4F2C-ADF1-CA83EB1773BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{443A4168-D041-4F2C-ADF1-CA83EB1773BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{443A4168-D041-4F2C-ADF1-CA83EB1773BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F9DA34-ECDF-476E-B395-F34EA705CA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F9DA34-ECDF-476E-B395-F34EA705CA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F9DA34-ECDF-476E-B395-F34EA705CA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F9DA34-ECDF-476E-B395-F34EA705CA7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,5 @@
 ﻿using Result;
+using Result.BaseResult;
 using ResultSample.Models;
 
 namespace ResultSample;
@@ -9,8 +10,8 @@ public class ResultSample
     {
         return Result<User>.Success(new User
         {
-            Name = "name",
-            Surname = "surname",
+            Name = "Name",
+            Surname = "Surname",
             Id = Guid.NewGuid()
         });
     }   
