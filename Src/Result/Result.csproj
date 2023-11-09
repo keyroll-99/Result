@@ -1,14 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Version>0.5.0</Version>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>Result</RootNamespace>
+        <PackageId>Keyroll.Result</PackageId>
+        <PackageVersion>0.5.0</PackageVersion>
+        <Title>Result</Title>
+        <Authors>Karol Kaźmierczak</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/keyroll-99/Result/tree/master</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/keyroll-99/Result/tree/master</RepositoryUrl>
+        <PackageTags>Result ErrorOr ApiResult Exception</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
-
-
-
-
+    <ItemGroup>
+        <None Include="..\..\README.md" pack="true" PackagePath="\"/>
+    </ItemGroup>
 
 </Project>
