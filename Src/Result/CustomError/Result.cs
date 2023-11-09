@@ -29,7 +29,7 @@ public class Result<TSuccess, TError>
     {
         return result.ErrorModel;
     }
-    
+
     public static implicit operator Result<TSuccess, TError>(TSuccess successModel)
     {
         return Success(successModel);
