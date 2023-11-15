@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Result;
-using Result.Api.ApiResult;
+using Result.Extensions;
 using WebApiSample.Services;
 
 var builder = WebApplication.CreateBuilder(args);

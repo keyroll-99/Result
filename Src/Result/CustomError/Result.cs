@@ -1,23 +1,17 @@
 ﻿namespace Result;
 
-public class Result<TSuccess, TError>
+public class Result<TSuccess, TError> : Result
     where TSuccess : class
     where TError : class
 {
     public TSuccess? SuccessModel { get; }
     public TError? ErrorModel { get; }
-    public bool IsSuccess { get; }
 
 
-    protected Result(bool isSuccess, TSuccess? successModel, TError? error)
+    protected Result(bool isSuccess, TSuccess? successModel, TError? error) : base(isSuccess)
     {
         SuccessModel = successModel;
         ErrorModel = error;
-        IsSuccess = isSuccess;
-    }
-
-    protected Result()
-    {
     }
 
     public static implicit operator TSuccess?(Result<TSuccess, TError> result)

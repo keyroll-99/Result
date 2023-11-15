@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-namespace Result.Api.ApiResult;
+
+namespace Result.ApiResult;
 
 public class ApiResult<TSuccess, TError> : Result<TSuccess, TError>
     where TSuccess : class
     where TError : class
 {
-    public int StatusCode { get; set; }
+    public int StatusCode { get; private set; }
 
-    private ApiResult(bool isSuccess, TSuccess? successModel, TError? error, int statusCode) : base(isSuccess,
+    protected ApiResult(bool isSuccess, TSuccess? successModel, TError? error, int statusCode) : base(isSuccess,
         successModel, error)
     {
         StatusCode = statusCode;
