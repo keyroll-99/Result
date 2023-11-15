@@ -4,7 +4,7 @@ namespace Result;
 public class Result<TSuccess> : Result<TSuccess, string>
     where TSuccess : class
 {
-    protected Result(bool isSuccess, TSuccess? successModel, string? error) : base(isSuccess, successModel, error)
+    private Result(bool isSuccess, TSuccess? successModel, string? error) : base(isSuccess, successModel, error)
     {
     }
 

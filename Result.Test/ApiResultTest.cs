@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
-using Result.Api.ApiResult;
+using Result.ApiResult;
 using Result.Test.SampleModel;
 using Xunit;
 
