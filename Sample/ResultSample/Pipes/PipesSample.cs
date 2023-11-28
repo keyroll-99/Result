@@ -15,6 +15,6 @@ public class PipesSample
             .OnError((error) =>
             {
                 // Do some stuff when we got error
-            });
+            }).OnError(Console.WriteLine);
     }
 }

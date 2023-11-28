@@ -1,17 +1,20 @@
 ﻿namespace Result;
 
-public class Result<TSuccess, TError> : Result
+public class Result<TSuccess, TError>
     where TSuccess : class
     where TError : class
 {
     public TSuccess? SuccessModel { get; }
     public TError? ErrorModel { get; }
+    public bool IsSuccess { get; private set; }
 
 
-    protected Result(bool isSuccess, TSuccess? successModel, TError? error) : base(isSuccess)
+    protected Result(bool isSuccess, TSuccess? successModel, TError? error)
+    
     {
         SuccessModel = successModel;
         ErrorModel = error;
+        IsSuccess = isSuccess;
     }
 
     public static implicit operator TSuccess?(Result<TSuccess, TError> result)
@@ -53,6 +56,16 @@ public class Result<TSuccess, TError> : Result
 
         return this;
     }
+    
+    public async Task<Result<TSuccess, TError>> OnSuccessAsync(Func<TSuccess, Task> action)
+    {
+        if (IsSuccess)
+        {
+            await action(SuccessModel!);
+        }
+
+        return this;
+    }
 
     public Result<TSuccess, TError> OnError(Action<TError> action)
     {
@@ -64,6 +77,17 @@ public class Result<TSuccess, TError> : Result
         return this;
     }
 
+    public async Task<Result<TSuccess, TError>> OnErrorAsync(Func<TError, Task> action)
+    {
+        if (!IsSuccess)
+        {
+            await action(ErrorModel!);
+        }
+
+        return this;
+    }
+
+    
     public (TSuccess?, TError?) Match(Func<TSuccess, TSuccess> onSuccess, Func<TError, TError> onError)
     {
         if (IsSuccess)
