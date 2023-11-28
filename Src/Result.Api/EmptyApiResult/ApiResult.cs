@@ -9,19 +9,19 @@ public class ApiResult : Result
     public int StatusCode { get; private set; }
 
 
-    protected ApiResult(bool isSuccess, int statusCode) : base(isSuccess)
+    private ApiResult(bool isSuccess, int statusCode, string errorMessage) : base(isSuccess, errorMessage)
     {
         StatusCode = statusCode;
     }
 
     public static ApiResult Success(int statusCode = StatusCodes.Status200OK)
     {
-        return new ApiResult(true, statusCode);
+        return new ApiResult(true, statusCode, string.Empty);
     }
 
-    public static ApiResult Fail(int statusCode = StatusCodes.Status400BadRequest)
+    public static ApiResult Fail(int statusCode = StatusCodes.Status400BadRequest, string? errorMessage = null)
     {
-        return new ApiResult(false, statusCode);
+        return new ApiResult(false, statusCode, errorMessage);
     }
     
     public ObjectResult GetObjectResult()
