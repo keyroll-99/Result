@@ -13,7 +13,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/keyroll-99/Result/tree/master</PackageProjectUrl>
         <RepositoryUrl>https://github.com/keyroll-99/Result/tree/master</RepositoryUrl>
-        <PackageTags>Result ErrorOr ApiResult Exception</PackageTags>
+        <PackageTags>Result ApiResult Exception HandleError ResultObject HandlingErrors Errors</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
