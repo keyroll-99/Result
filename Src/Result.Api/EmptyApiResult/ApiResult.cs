@@ -31,6 +31,12 @@ public class ApiResult : Result
             StatusCode = StatusCode
         };
     }
+    
+    public static implicit operator string(ApiResult result)
+        => result.ErrorMessage;
+    
+    public static implicit operator ApiResult(string error)
+        => Fail(StatusCodes.Status400BadRequest, error);
 
     public IResult GetResult()
     {
