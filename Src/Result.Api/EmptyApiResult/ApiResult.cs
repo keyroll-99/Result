@@ -26,7 +26,7 @@ public class ApiResult : Result
     
     public ObjectResult GetObjectResult()
     {
-        return new ObjectResult(null)
+        return new ObjectResult(ErrorMessage)
         {
             StatusCode = StatusCode
         };
@@ -40,7 +40,7 @@ public class ApiResult : Result
 
     public IResult GetResult()
     {
-        return Results.Json(null , statusCode: StatusCode);
+        return Results.Json(ErrorMessage , statusCode: StatusCode);
     }
     
     public static implicit operator ObjectResult(ApiResult result)
