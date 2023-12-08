@@ -69,4 +69,19 @@ public class ApiResultTest
         objectResult.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
         objectResult.Value.Should().BeOfType<Exception>();
     }
+    
+    [Fact]
+    public void When_Result_Is_Error_And_Call_GetObjectResult_Should_Return_ObjectResult_With_Error_Message()
+    {
+        // Arrange
+        var result = ApiResult.ApiResult.Fail(StatusCodes.Status400BadRequest, "error");
+
+        // Act
+        var objectResult = result.GetObjectResult();
+
+        // Assert
+        objectResult.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
+        objectResult.Value.Should().BeOfType<string>();
+        objectResult.Value.Should().Be("error");
+    }
 }
