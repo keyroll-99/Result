@@ -17,6 +17,6 @@ public class Result : Result<object, string>
 
     public static Result Fail(string? errorMessage = null)
     {
-        return new Result(false, string.Empty);
+        return new Result(false, errorMessage);
     }
 }
