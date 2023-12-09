@@ -60,4 +60,16 @@ public class ResultTests
         resultSuccessModel.Should().BeNull();
         errorModel.Should().NotBeNull();
     }
+
+    [Fact]
+    public void When_Empty_Result_Is_Error_Then_Should_Keep_Error_Message()
+    {
+        // Act
+        var result = Result.Fail("error message");
+        
+        // Assert
+        result.IsSuccess.Should().BeFalse();
+        result.ErrorModel.Should().Be("error message");
+        result.ErrorMessage.Should().Be("error message");
+    }
 }
