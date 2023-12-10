@@ -16,7 +16,7 @@ public class ApiResult : Result
 
     public static ApiResult Success(int statusCode = StatusCodes.Status200OK)
     {
-        return new ApiResult(true, statusCode, string.Empty);
+        return new ApiResult(true, statusCode, null);
     }
 
     public static ApiResult Fail(int statusCode = StatusCodes.Status400BadRequest, string? errorMessage = null)
